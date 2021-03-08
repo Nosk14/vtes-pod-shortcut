@@ -25,6 +25,7 @@ class DriveThruCards:
             parser = DriveThruParser()
             parser.feed(html)
             raw_cards.extend(parser.cards)
+            break
         return raw_cards
 
     def __get_html(self, url):
@@ -38,12 +39,13 @@ class DriveThruCards:
         raw_name = raw_card['name'].split("-", 1)[1].rsplit("-", 1)[0]
         rs = requests.get(BLOODLIBRARY_ENDPOINT.format(raw_name))
         card_data = rs.json()[0]
+        link = raw_card['link'].rsplit('?')[0].rsplit('/', 1)[0]
 
         return {
             'name': card_data['name'],
             'id': card_data['id'],
             'img': card_data['image'],
-            'link': raw_card['link']
+            'link': link
         }
 
 
