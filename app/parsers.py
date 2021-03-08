@@ -25,7 +25,6 @@ class DriveThruCards:
             parser = DriveThruParser()
             parser.feed(html)
             raw_cards.extend(parser.cards)
-            break
         return raw_cards
 
     def __get_html(self, url):

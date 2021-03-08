@@ -41,6 +41,10 @@
           font-weight: bold;
      }
 
+     .buttons-panel {
+        padding-bottom: 30px;
+     }
+
     </style>
     <meta charset="UTF-8">
     <title>VTES: Print on demand compilation</title>
@@ -53,6 +57,10 @@
         This web has nothing to do with DriveThruCards or any other company, and also is not responsible for any purchase you do. This web is it is totally non-profit.
     </p>
 </header>
+<div class="buttons-panel">
+ <button type="button" class="btn btn-success btn-lg" onclick="location.href='/'">Sort by card ID</button>
+ <button type="button" class="btn btn-success btn-lg" onclick="location.href='/?sort=twda'">Sort by card usage</button>
+</div>
 <div class="grid-container">
     {% for card in cards %}
     <div class="card">
