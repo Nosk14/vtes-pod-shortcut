@@ -44,6 +44,10 @@ def cards_panel():
 
     if sorting_method == 'twda':
         local_cards.sort(key=lambda c: card_usage[c['id']], reverse=True)
+    elif sorting_method == 'name':
+        local_cards.sort(key=lambda c: c['name'])
+    elif sorting_method == 'type':
+        local_cards.sort(key=lambda c: (c['type'], c['name']))
 
     return render_template('cards_panel.html', cards=local_cards)
 

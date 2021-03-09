@@ -44,7 +44,8 @@ class DriveThruCards:
             'name': card_data['name'],
             'id': card_data['id'],
             'img': card_data['image'],
-            'link': link
+            'link': link,
+            'type': card_data['card_type']
         }
 
 
