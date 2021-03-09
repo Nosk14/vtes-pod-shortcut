@@ -1,9 +1,11 @@
 import logging
 import csv
 from flask import Flask, render_template, request
+from flask_mobility import Mobility
 from parsers import DriveThruCards
 
 app = Flask(__name__)
+Mobility(app)
 
 if __name__ != '__main__':
     gunicorn_logger = logging.getLogger('gunicorn.error')
@@ -49,7 +51,7 @@ def cards_panel():
     elif sorting_method == 'type':
         local_cards.sort(key=lambda c: (c['type'], c['name']))
 
-    return render_template('cards_panel.html', cards=local_cards)
+    return render_template('cards_panel.html', cards=local_cards, is_mobile=request.MOBILE)
 
 
 if __name__ == '__main__':

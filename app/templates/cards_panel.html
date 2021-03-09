@@ -22,7 +22,11 @@
          display: grid;
          grid-column-gap: 5px;
          grid-row-gap: 10px;
+         {% if is_mobile %}
+         grid-template-columns: auto auto;
+         {% else %}
          grid-template-columns: auto auto auto auto auto;
+         {% endif  %}
          padding-left: 15px;
          padding-right: 15px;
      }
