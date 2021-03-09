@@ -50,6 +50,8 @@ def cards_panel():
         local_cards.sort(key=lambda c: c['name'])
     elif sorting_method == 'type':
         local_cards.sort(key=lambda c: (c['type'], c['name']))
+    elif sorting_method == 'artist':
+        local_cards.sort(key=lambda c: (c['artist'], c['name']))
 
     return render_template('cards_panel.html', cards=local_cards, is_mobile=request.MOBILE)
 
