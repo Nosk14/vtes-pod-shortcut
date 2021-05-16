@@ -16,11 +16,9 @@ node {
         }catch(Exception e){
             echo e.getMessage()
         }
-
-
             def runArgs = '\
---network DEFAULT \
---ip 172.18.3.3 \
+--network HTTP_SERVICES \
+--ip 172.18.0.8 \
 --restart unless-stopped \
 --name ' + image_name
 
